@@ -9,8 +9,8 @@
  * Helper para el ingreso de datos y la validacion
  * 
  * Métodos:
- * - ingresarString(mensaje): pide y devuelve un string
- * - ingresarInteger(mensaje, min, max): pide y devuelve un int
+ * - string(mensaje): pide y devuelve un string
+ * - integer(mensaje, min, max): pide y devuelve un int
  */
 export class Input {
     constructor() {

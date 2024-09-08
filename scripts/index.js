@@ -1,20 +1,16 @@
 'use strict';
 
-import { Disco } from './disco.js';
+import { Discos } from './discos.js';
 
 /*
  * Arroyo Lautaro Alan
  */
 
-var discos = [];
-var nuevoDisco = null; // para testear
-
 /**
  * Llamada desde un boton. Pide los datos para un disco.
  */
 function cargar() {
-    // TODO
-    nuevoDisco = Disco.cargarDisco();
+    Discos.cargarDisco();
 }   
 
 /**
@@ -22,7 +18,9 @@ function cargar() {
  */
 function mostrar() {
     // TODO
-    console.log(nuevoDisco);
+    // console.log(discos);
+    console.log(Discos.getDiscos());
+    
 };
 
 document.getElementById("btn_cargar").addEventListener("click", cargar);
