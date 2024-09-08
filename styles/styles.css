@@ -3,14 +3,21 @@
  */
 @charset "utf-8";
 
+:root{
+    --color-background: #2977a4;
+    --color-background-white: #FFF;
+    --color-text: #D0E0E3;
+}
+
 /**
  * Fonts
  */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
 
 /**
  * Mobile
  */
+ 
 
 /** General */
 html {
@@ -24,39 +31,40 @@ html {
 * {
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 1;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Hind Siliguri", sans-serif;
     font-weight: 400;
+}
+
+.contenedor{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /** Body */
 body {
-    background-color: #2977a4;
-    color: #D0E0E3;
+    background-color:var(--color-background);
+    color: var(--color-text);
 }
 
 /** Header */
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
+    padding: 0.5em 0;
 }
 
 /** Encabezados */
 h1,
 h2 {
-    font-family: 'Montserrat';
-    font-size: 3.6em;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 1.5em;
     line-height: 1.5;
     font-weight: 700;
-    text-align: center;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 1.4em;
     color: #2977a4;
 }
 
@@ -66,15 +74,23 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 4em 2em;
-    background-color: #FFF;
+    padding: 1em 0;
+    background-color: var(--color-background-white);
+    color: var(--color-background);
+    min-height: 80vh;
 }
 
-main p {
-    font-size: 2.4em;
+main p,
+main span,
+main label,
+main legend,
+main b,
+main strong
+ {
+    font-size: 1em;
     line-height: 1.5;
     text-align: left;
-    color: #2977a4;
+    color: var(--color-background);
 }
 
 main p strong, 
@@ -99,8 +115,7 @@ main ul {
 }
 
 main ul li {
-    margin-left: 2em;
-    font-size: 2.4em;
+    font-size: 1em;
     line-height: 1.5;
     text-align: left;
     color: #1A4A5E;
@@ -124,12 +139,12 @@ main button {
     border: none;
     border-radius: .5em;
     padding: .25em .5em;
-    background: #2977a4;
+    background: var(--color-background);
     cursor: pointer;
-    font-size: 2.4em;
+    font-size: 1em;
     line-height: 1.5;
     text-align: center;
-    color: #D0E0E3;
+    color: var(--color-text);
 }
 
 main div.galeria {
@@ -146,7 +161,7 @@ main div.galeria {
 
 main div.galeria > img {
     max-width: 90%;
-    margin: 1em 5%;
+    margin: 1em 0;
 }
 
 main div.galeria > span {
@@ -188,6 +203,35 @@ main hr {
     height: .1em;
 }
 
+fieldset{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    margin: 1em 0;
+}
+
+fieldset legend{
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 1em;
+}
+
+input, select, textarea {
+    padding: 0.4em 0.2em;
+    font-size: 0.9em;
+    border: 1px solid #5c5c5c;
+    border-radius: 0.25em;
+}
+
+input:focus, input:focus-visible,
+select:focus, select:focus-visible,
+textarea:focus, textarea:focus-visible
+{
+    border: 1px solid var(--color-background);
+    outline: none;
+}
+
 /** Footer */
 footer {
     display: flex;
@@ -195,8 +239,7 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 2em;
-    
+    padding: 1em 0;
 }
 
 footer ul {
@@ -209,14 +252,14 @@ footer ul {
 }
 
 footer ul li {
-    font-family: 'Montserrat';
-    font-size: 1.4em;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 0.75em;
     line-height: 1.5;
     text-align: center;
 }
 
 footer ul li a {
-    font-family: 'Montserrat';
+    font-family: "Hind Siliguri", sans-serif;
     font-size: 1em;
     text-decoration: none;
     color: #D0E0E3;
