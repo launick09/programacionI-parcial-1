@@ -17,10 +17,27 @@ function cargar() {
  * Llamada desde un boton. Muestra todos los discos disponibles.
  */
 function mostrar() {
-    // TODO
-    // console.log(discos);
-    console.log(Discos.getDiscos());
-    
+    let contenedor = document.getElementById('discos');
+    const discos = Discos.getDiscos();
+    let html = '';
+    discos.forEach(disco => {
+        let canciones = '';
+        disco.canciones.forEach(cancion => {
+            console.log(cancion);
+            
+            canciones += `<li>${cancion.nombre} - ${cancion.getDuracion()}</li>`;
+        });
+
+        html += `
+            <section>
+                <h3>${disco.disco} - ${disco.banda}</h3>
+                <ul>
+                    ${canciones}
+                </ul>
+            </section>
+        `;
+    });
+    contenedor.innerHTML = html;
 };
 
 document.getElementById("btn_cargar").addEventListener("click", cargar);

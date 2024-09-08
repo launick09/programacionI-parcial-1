@@ -45,6 +45,7 @@ export class Discos {
 
     /**
      * Crea un disco
+     * @returns {Discos|null}
      */
     static cargarDisco() {
         try {     
