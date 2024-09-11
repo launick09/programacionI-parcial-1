@@ -155,6 +155,10 @@ main ul li em {
     font-size: 1em;
 }
 
+.duracion-larga{
+    color: #bb1b1b;
+}
+
 main button {
     margin: .5em 0;
     border: none;

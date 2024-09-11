@@ -76,6 +76,11 @@ export class Discos {
         }
     }
 
+    /**
+     * crea los discos de un Json
+     * @param {json} discosArray 
+     */
+
     static crearDeJson(discosArray){
         try {
             discosArray.forEach(discoData => {

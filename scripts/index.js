@@ -27,7 +27,14 @@ function mostrar() {
     discos.forEach(disco => {
         let canciones = '';
         disco.canciones.forEach(cancion => {
-            canciones += `<li class="item-cancion">${cancion.nombre} - ${cancion.getDuracion()}</li>`;
+            canciones += `
+                <li class="item-cancion">
+                    ${cancion.nombre} - 
+                    <strong ${ cancion.duracion >= 180 ? 'class="duracion-larga"' : '' } > 
+                        ${cancion.getDuracion()} 
+                    </strong>
+                </li>
+            `;
         });
 
         html += `
