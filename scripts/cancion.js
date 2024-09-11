@@ -6,6 +6,11 @@
 
 import { Input } from './input.js';
 
+/**
+ * @class Disco
+ * @property {string} nombre - El nombre de la canción.
+ * @property {number} duracion - La duracion de la canción.
+ */
 export class Cancion{
     constructor(nombre, duracion) {
         this.nombre = nombre;

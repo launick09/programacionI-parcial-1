@@ -1,6 +1,4 @@
 'use strict';
-
-import { Cancion } from './cancion.js';
 import { Discos } from './discos.js';
 
 /*
@@ -10,7 +8,6 @@ import { Discos } from './discos.js';
 /**
  * Llamada desde un boton. Pide los datos para un disco.
  */
-var d = [];
 
 function cargar() {
     Discos.cargarDisco();

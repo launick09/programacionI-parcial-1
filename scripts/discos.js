@@ -7,6 +7,14 @@
 import { Input } from './input.js';
 import { Cancion } from './cancion.js';
 
+/**
+ * @class Disco
+ * @property {string} banda - El nombre de la banda o grupo musical
+ * @property {string} disco - El nombre del disco
+ * @property {number} codigo - El código únco del disco
+ * @property {string} portada - La URL de la imagen de la portada
+ * @property {Array} canciones - Una lista de canciones del disco
+ */
 export class Discos {
 
     static discos = [];
@@ -47,7 +55,7 @@ export class Discos {
             let codigo = null;
             let codigoRepetido = false;
             do{
-                codigo = Input.integer('código numérico único:');
+                codigo = Input.integer('código numérico único:', 1, 999);
                 codigoRepetido = this.discos.some(disco => disco.codigo === codigo);
                 if( codigoRepetido ){
                     alert(`El codigo numérico ${codigo} ya existe, ingrese otro.`);
@@ -73,6 +81,7 @@ export class Discos {
             return nuevoDisco;
         } catch (error) {
             console.warn(error.message);
+            return null;
         }
     }
 
