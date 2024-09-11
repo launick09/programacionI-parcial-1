@@ -19,7 +19,7 @@ export class Cancion{
     getDuracion(){
         const minutos = Math.floor(this.duracion / 60);
         const segundos = this.duracion % 60;
-        return `${minutos}:${segundos}`;
+        return `${minutos}:${segundos <= 9 ? '0'+segundos : segundos}`;
     }
 
     /**
@@ -32,7 +32,7 @@ export class Cancion{
             let duracion = Input.integer('Ingrese la duración de la canción (1, 7200seg)', 1, 7200);
             return new Cancion(nombre, duracion);
         } catch (error) {
-            console.error(error.message);
+            console.warn(error.message);
             return null;
         }
     }

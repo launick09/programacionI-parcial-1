@@ -4,9 +4,9 @@
 @charset "utf-8";
 
 :root{
-    --color-background: #2977a4;
-    --color-background-white: #FFF;
-    --color-text: #D0E0E3;
+    --color-background: #648fdf;
+    --color-text-white: #fafafa;
+    --color-text: #314770;
 }
 
 /**
@@ -46,7 +46,7 @@ html {
 /** Body */
 body {
     background-color:var(--color-background);
-    color: var(--color-text);
+    color: var(--color-text-white);
 }
 
 /** Header */
@@ -65,7 +65,7 @@ h2 {
 
 h2 {
     font-size: 1.4em;
-    color: #2977a4;
+    color: var(--color-text);
 }
 
 /** Main */
@@ -75,7 +75,7 @@ main {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1em 0;
-    background-color: var(--color-background-white);
+    background-color: var(--color-text-white);
     color: var(--color-background);
     min-height: 80vh;
 }
@@ -106,32 +106,53 @@ main p em {
     font-style: italic;
 }
 
-main ul {
+section.disco{
+    border: 1px solid var(--color-text);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+section.disco h3{
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+section.disco .disco-container{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3em;
+}
+
+.disco-container .portada-disco img{
+    /* no quiero lidear con esto */
+    width: 300px; 
+    height: auto;
+}
+
+ul.lista-canciones{
+    margin-right: auto;
+    width: max-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    align-items: flex-start;
-    width: 100%;
 }
 
-main ul li {
+ul.lista-canciones li.item-cancion {
+    margin-left: 1em;
     font-size: 1em;
     line-height: 1.5;
     text-align: left;
-    color: #1A4A5E;
+    color: var(--color-text);
 }
 
 main ul li strong,
 main ul li em {
     font-size: 1em;
-}
-
-main ul li strong {
-    font-weight: 700;
-}
-
-main ul li em {
-    font-style: italic;
 }
 
 main button {
@@ -144,92 +165,7 @@ main button {
     font-size: 1em;
     line-height: 1.5;
     text-align: center;
-    color: var(--color-text);
-}
-
-main div.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1em 0;
-    width: 100%;
-    padding: 1em;
-    background: rgba(19,79,92,.5);
-}
-
-main div.galeria > img {
-    max-width: 90%;
-    margin: 1em 0;
-}
-
-main div.galeria > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5em;
-    height: 5em;
-}
-
-main div.galeria div {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 90%;
-    padding: 1em;
-}
-
-main div.galeria div img {
-    width: 100%;
-}
-
-main div.galeria div h3 {
-    padding: .5em;
-    font-size: 3.2em;
-    text-align: center;
-    color: #134F5C;
-}
-
-main div.galeria div p {
-    padding: 1em;
-    font-size: 1.6em;
-    text-align: center;
-}
-
-main hr {
-    margin: 1em 0%;
-    width: 100%;
-    height: .1em;
-}
-
-fieldset{
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-    margin: 1em 0;
-}
-
-fieldset legend{
-    font-size: 1.2em;
-    text-align: center;
-    font-weight: 500;
-    padding: 0 1em;
-}
-
-input, select, textarea {
-    padding: 0.4em 0.2em;
-    font-size: 0.9em;
-    border: 1px solid #5c5c5c;
-    border-radius: 0.25em;
-}
-
-input:focus, input:focus-visible,
-select:focus, select:focus-visible,
-textarea:focus, textarea:focus-visible
-{
-    border: 1px solid var(--color-background);
-    outline: none;
+    color: var(--color-text-white);
 }
 
 /** Footer */

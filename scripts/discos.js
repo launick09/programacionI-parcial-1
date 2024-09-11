@@ -28,14 +28,6 @@ export class Discos {
     }
 
     /**
-     * Devuelve el disco
-     * @returns {Discos}
-     */
-    static getDisco(){
-        return this;
-    }
-
-    /**
      * Devuelve un array con todos discos
      * @returns {Discos}
      */
@@ -80,7 +72,20 @@ export class Discos {
             this.discos.push(nuevoDisco);
             return nuevoDisco;
         } catch (error) {
-            console.error(error.message);
+            console.warn(error.message);
+        }
+    }
+
+    static crearDeJson(discosArray){
+        try {
+            discosArray.forEach(discoData => {
+                const { nombre: disco, artista: banda, id: codigo, portada, pistas } = discoData;
+                let canciones = pistas.map(pista => new Cancion(pista.nombre, pista.duracion));
+                let nuevoDisco = new Discos(banda, disco, codigo, canciones, portada);
+                this.discos.push(nuevoDisco);
+            });
+        } catch (error) {
+            console.warn("Error al crear discos desde JSON:", error);
         }
     }
 }

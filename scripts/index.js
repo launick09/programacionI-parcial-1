@@ -1,5 +1,6 @@
 'use strict';
 
+import { Cancion } from './cancion.js';
 import { Discos } from './discos.js';
 
 /*
@@ -9,6 +10,8 @@ import { Discos } from './discos.js';
 /**
  * Llamada desde un boton. Pide los datos para un disco.
  */
+var d = [];
+
 function cargar() {
     Discos.cargarDisco();
 }   
@@ -18,27 +21,49 @@ function cargar() {
  */
 function mostrar() {
     let contenedor = document.getElementById('discos');
-    const discos = Discos.getDiscos();
+    let discos = Discos.getDiscos();
+    
     let html = '';
     discos.forEach(disco => {
         let canciones = '';
         disco.canciones.forEach(cancion => {
-            console.log(cancion);
-            
-            canciones += `<li>${cancion.nombre} - ${cancion.getDuracion()}</li>`;
+            canciones += `<li class="item-cancion">${cancion.nombre} - ${cancion.getDuracion()}</li>`;
         });
 
         html += `
-            <section>
+            <section class="disco" id="${disco.codigo}">
                 <h3>${disco.disco} - ${disco.banda}</h3>
-                <ul>
-                    ${canciones}
-                </ul>
+                <div class="disco-container">
+                    <div class="portada-disco">
+                        <img 
+                            src="${disco.portada}" 
+                            onerror="this.src='https://png.pngtree.com/png-vector/20190917/ourmid/pngtree-not-found-circle-icon-vectors-png-image_1737851.jpg'" alt="portada de ${disco.disco}"
+                        >
+                    </div>
+                    <ul class="lista-canciones">
+                        ${canciones}
+                    </ul>
+                </div>
             </section>
         `;
     });
     contenedor.innerHTML = html;
 };
 
+function cargarJson() {
+    console.log('cargando predeterminadas..');
+    fetch('/discos.json')
+    .then(respuesta => respuesta.json() )
+    .then(respuesta => {
+        Discos.crearDeJson(respuesta);
+        console.log('carga finalizada.')
+    })
+    .catch( error => {
+        console.error('Error al cargar Predeterminadas');
+        console.error(error);
+    });
+}
+//tiene que estar esto?
+window.addEventListener('load', cargarJson);
 document.getElementById("btn_cargar").addEventListener("click", cargar);
 document.getElementById("btn_mostrar").addEventListener("click", mostrar);
