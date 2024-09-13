@@ -56,7 +56,8 @@ function mostrar() {
 
 function cargarJson() {
     console.log('cargando predeterminadas..');
-    fetch('/discos.json')
+    // fetch('/discos.json')
+    fetch('https://launick09.github.io/programacionI-parcial-1/discos.json')
     .then(respuesta => respuesta.json() )
     .then(respuesta => {
         Discos.crearDeJson(respuesta);
