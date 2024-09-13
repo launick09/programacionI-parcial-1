@@ -68,7 +68,7 @@ function cargarJson() {
         console.error(error);
     });
 }
-//tiene que estar esto?
-window.addEventListener('load', cargarJson);
+// tiene que estar esto? no - respuesta 12-09 
+// window.addEventListener('load', cargarJson);
 document.getElementById("btn_cargar").addEventListener("click", cargar);
 document.getElementById("btn_mostrar").addEventListener("click", mostrar);
