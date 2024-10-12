@@ -4,7 +4,7 @@
  * Arroyo Lautaro Alan
  */
 
-import { Input } from './input.js';
+import { DataHelper } from './DataHelper.js';
 import { Cancion } from './cancion.js';
 
 /**
@@ -57,7 +57,7 @@ export class Discos {
      */
     getDuracionTotal() {
         const duracion = this.canciones.reduce((total, cancion) => total + cancion.duracion, 0);
-        return Input.segundosATiempo(duracion, true);
+        return DataHelper.segundosATiempo(duracion, true);
     }
 
     /**
@@ -66,7 +66,7 @@ export class Discos {
      */
     getDuracionPromedio() {
         const duracion = this.canciones.reduce((total, cancion) => total + cancion.duracion, 0) / this.canciones.length;
-        return Input.segundosATiempo(duracion, true);
+        return DataHelper.segundosATiempo(duracion, true);
     }
 
     /**
@@ -94,13 +94,13 @@ export class Discos {
      */
     static cargarDisco() {
         try {     
-            let banda = Input.string('Ingrese el Nombre de la Banda/Grupo:');
-            let disco = Input.string('Ingrese el Nombre del Disco:');
-            let portada = Input.string('URL de la imagen de la portada:');
+            let banda = DataHelper.string('Ingrese el Nombre de la Banda/Grupo:');
+            let disco = DataHelper.string('Ingrese el Nombre del Disco:');
+            let portada = DataHelper.string('URL de la imagen de la portada:');
             let codigo = null;
             let codigoRepetido = false;
             do{
-                codigo = Input.integer('código numérico único:', 1, 999);
+                codigo = DataHelper.integer('código numérico único:', 1, 999);
                 codigoRepetido = this.discos.some(disco => disco.codigo === codigo);
                 if( codigoRepetido ){
                     alert(`El codigo numérico ${codigo} ya existe, ingrese otro.`);
@@ -113,8 +113,10 @@ export class Discos {
                 let cancion = Cancion.crearCancion();
                 if(cancion){
                     canciones.push(cancion);
+                    continuar = confirm("Ingresar otra cancion?");
+                }else{
+                    break;
                 }
-                continuar = confirm("Ingresar otra cancion?");
             }
 
             if(canciones.length < 1){

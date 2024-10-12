@@ -4,7 +4,7 @@
  * Arroyo Lautaro Alan
  */
 
-import { Input } from './input.js';
+import { DataHelper } from './DataHelper.js';
 
 /**
  * @class Disco
@@ -22,7 +22,7 @@ export class Cancion{
      * @returns {String}
      */
     getDuracion(){
-        return Input.segundosATiempo(this.duracion, false);
+        return DataHelper.segundosATiempo(this.duracion, false);
     }
 
     /**
@@ -31,8 +31,8 @@ export class Cancion{
      */
     static crearCancion() {
         try {
-            let nombre = Input.string('Ingrese el nombre de la canción:');
-            let duracion = Input.integer('Ingrese la duración de la canción (1, 7200seg)', 1, 7200);
+            let nombre = DataHelper.string('Ingrese el nombre de la canción:');
+            let duracion = DataHelper.integer('Ingrese la duración de la canción (1, 7200seg)', 1, 7200);
             return new Cancion(nombre, duracion);
         } catch (error) {
             console.warn(error.message);

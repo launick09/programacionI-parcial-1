@@ -13,7 +13,7 @@
  * - integer(mensaje, min, max): pide y devuelve un int
  * - segundosATiempo(duracion, largo): transforma segundos a tiempo
  */
-export class Input {
+export class DataHelper {
     constructor() {
         //
     }
