@@ -22,9 +22,7 @@ export class Cancion{
      * @returns {String}
      */
     getDuracion(){
-        const minutos = Math.floor(this.duracion / 60);
-        const segundos = this.duracion % 60;
-        return `${minutos}:${segundos <= 9 ? '0'+segundos : segundos}`;
+        return Input.segundosATiempo(this.duracion, false);
     }
 
     /**

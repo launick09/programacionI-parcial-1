@@ -27,9 +27,9 @@ function mostrar() {
             canciones += `
                 <li class="item-cancion">
                     ${cancion.nombre} - 
-                    <strong ${ cancion.duracion >= 180 ? 'class="duracion-larga"' : '' } > 
+                    <span ${ cancion.duracion >= 180 ? 'class="duracion-larga"' : '' } > 
                         ${cancion.getDuracion()} 
-                    </strong>
+                    </span>
                 </li>
             `;
         });
@@ -43,10 +43,11 @@ function mostrar() {
                             src="${disco.portada}" 
                             onerror="this.src='https://png.pngtree.com/png-vector/20190917/ourmid/pngtree-not-found-circle-icon-vectors-png-image_1737851.jpg'" alt="portada de ${disco.disco}"
                         >
+                        ${disco.mostrarInfoBanda()}
                     </div>
-                    <ul class="lista-canciones">
+                    <ol class="lista-canciones">
                         ${canciones}
-                    </ul>
+                    </ol>
                 </div>
             </section>
         `;
@@ -69,6 +70,6 @@ function cargarJson() {
     });
 }
 // tiene que estar esto? no - respuesta 12-09 
-// window.addEventListener('load', cargarJson);
+window.addEventListener('load', cargarJson);
 document.getElementById("btn_cargar").addEventListener("click", cargar);
 document.getElementById("btn_mostrar").addEventListener("click", mostrar);

@@ -11,6 +11,7 @@
  * Métodos:
  * - string(mensaje): pide y devuelve un string
  * - integer(mensaje, min, max): pide y devuelve un int
+ * - segundosATiempo(duracion, largo): transforma segundos a tiempo
  */
 export class Input {
     constructor() {
@@ -58,6 +59,22 @@ export class Input {
             }
         }
         return value;
+    }
+
+    /**
+     * Transforma los segundos a H:m:s o m:s
+     * @param {integer} duracion - La duracion en segundos
+     * @param {boolean} largo - Si retorna las horas
+     * @returns {string} El valor transformado
+     */
+    static segundosATiempo(duracion, largo = true){
+        const horas = Math.floor(duracion / 3600).toString();
+        const minutos = Math.floor((duracion % 3600) / 60).toString();
+        const segundos = Math.ceil(duracion % 60).toString();
+        if (largo && horas > 0) {
+            return `${horas}:${minutos.padStart(2, '0')}:${segundos.padStart(2, '0')}`;
+        }
+        return `${minutos.padStart(2, '0')}:${segundos.padStart(2, '0')}`;
     }
 
 }

@@ -32,7 +32,15 @@ export class Discos {
      * @returns {String}
      */
     mostrarInfoBanda() {
-        return `Banda: ${this.banda}, Disco: ${this.disco}, Código Unico: ${this.codigo}`;
+        return `
+            <ul>
+                <li class="item-cancion">Cantidad de pistas: ${this.getCantidadPistas()}</li>
+                <li class="item-cancion">Pista más Larga: ${this.getPistaMasLarga().nombre}</li>
+                <li class="item-cancion">Duración Promedio: ${this.getDuracionPromedio()}</li>
+                <li class="item-cancion">Duración del Disco: ${this.getDuracionTotal()}</li>
+            </ul>
+        `;
+
     }
 
     /**
@@ -42,6 +50,43 @@ export class Discos {
     static getDiscos(){
         return this.discos;
     }
+
+    /**
+     * Devuelve la duración total de todas las canciones del disco
+     * @returns {String} - en H:m:s
+     */
+    getDuracionTotal() {
+        const duracion = this.canciones.reduce((total, cancion) => total + cancion.duracion, 0);
+        return Input.segundosATiempo(duracion, true);
+    }
+
+    /**
+     * Devuelve la duración promedio de todas las canciones del disco
+     * @returns {String} - en H:m:s
+     */
+    getDuracionPromedio() {
+        const duracion = this.canciones.reduce((total, cancion) => total + cancion.duracion, 0) / this.canciones.length;
+        return Input.segundosATiempo(duracion, true);
+    }
+
+    /**
+     * Devuelve la cantidad de canciones en el disco
+     * @returns {Number} cantidad de pistas
+     */
+    getCantidadPistas() {
+        return this.canciones.length;
+    }
+
+    /**
+     * Devuelve la pista de mayor duyracion
+     * @returns {Cancion} Pista más larga
+     */
+    getPistaMasLarga() {
+        return this.canciones.reduce((pistaMasLarga, cancion) => {
+            return (cancion.duracion > pistaMasLarga.duracion) ? cancion : pistaMasLarga;
+        });
+    }
+
 
     /**
      * Crea un disco
