@@ -16,9 +16,22 @@
         </header>
         <main>
             <div class="contenedor">
+                <h2>Administracion</h2>
+                <div class="administracion">
+                    <div class="carga">
+                        <button id="btn_cargar">Cargar nuevo disco</button>
+                        <button id="btn_mostrar">Mostrar discos</button>
+                    </div>
+                    <form id="buscador" class="busqueda">
+                        <div class="block">
+                            <input type="number" id="codigo_buscar" placeholder="Código del disco">
+                        </div>
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contenedor">
                 <h2>Mis discos</h2>
-                <button id="btn_cargar">Cargar nuevo disco</button>
-                <button id="btn_mostrar">Mostrar discos</button>
                 <div id="discos">
                     <!--
                         Aca podrian mostrar los discos

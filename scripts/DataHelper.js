@@ -32,7 +32,7 @@ export class DataHelper {
             if (value === null) {
                 throw new Error('Ingreso Cancelado');
             }
-            value = parseInt(value);
+            value = parseInt(value, 10);
             if (isNaN(value)) {
                 alert('Debe ingresar un número válido.');
             } else if (value <= min || value >= max) {

@@ -40,10 +40,11 @@ export class Discografia {
     /**
      * Busca discos por el codigo
      * @param {integer} codigo - El nombre de la banda a buscar
-     * @returns {Disco[]} - Array de discos
+     * @returns {Disco|null} - El disco encontrado o null si no lo encuentra
      */
-    buscarDiscosPorCodigo(codigo) {
-        return this.discos.filter(disco => disco.codigo === codigo);
+    buscarDiscosPorCodigo(codigo) {  
+        const disco = this.discos.find(disco => disco.codigo === codigo);
+        return disco ? disco : null;
     }
 
     toHtml(){
