@@ -26,6 +26,21 @@ export class Cancion{
     }
 
     /**
+     * Devuelve HTML
+     * @returns {String} 
+     */
+    toHtml(){
+        return `
+            <li class="item-cancion">
+                ${this.nombre} - 
+                <span ${ this.duracion >= 180 ? 'class="duracion-larga"' : '' } > 
+                    ${this.getDuracion()} 
+                </span>
+            </li>
+        `;
+    }
+
+    /**
      * Crea una cancion
      * @returns {Cancion|null}
      */

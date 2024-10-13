@@ -15,10 +15,7 @@ import { Cancion } from './cancion.js';
  * @property {string} portada - La URL de la imagen de la portada
  * @property {Array} canciones - Una lista de canciones del disco
  */
-export class Discos {
-
-    static discos = [];
-
+export class Disco {
     constructor(banda, disco, codigo, canciones, portada = null) {
         this.banda = banda;
         this.disco = disco;
@@ -40,12 +37,11 @@ export class Discos {
                 <li class="item-cancion">Duración del Disco: ${this.getDuracionTotal()}</li>
             </ul>
         `;
-
     }
 
     /**
      * Devuelve un array con todos discos
-     * @returns {Discos}
+     * @returns {Disco}
      */
     static getDiscos(){
         return this.discos;
@@ -87,66 +83,31 @@ export class Discos {
         });
     }
 
-
     /**
-     * Crea un disco
-     * @returns {Discos|null}
+     * Devuelve HTML
+     * @returns {String} 
      */
-    static cargarDisco() {
-        try {     
-            let banda = DataHelper.string('Ingrese el Nombre de la Banda/Grupo:');
-            let disco = DataHelper.string('Ingrese el Nombre del Disco:');
-            let portada = DataHelper.string('URL de la imagen de la portada:');
-            let codigo = null;
-            let codigoRepetido = false;
-            do{
-                codigo = DataHelper.integer('código numérico único:', 1, 999);
-                codigoRepetido = this.discos.some(disco => disco.codigo === codigo);
-                if( codigoRepetido ){
-                    alert(`El codigo numérico ${codigo} ya existe, ingrese otro.`);
-                }
-            }while( codigoRepetido );
-            
-            let canciones = [];
-            let continuar = true;
-            while (continuar) {
-                let cancion = Cancion.crearCancion();
-                if(cancion){
-                    canciones.push(cancion);
-                    continuar = confirm("Ingresar otra cancion?");
-                }else{
-                    break;
-                }
-            }
-
-            if(canciones.length < 1){
-                throw new Error('el disco no contiene canciones!'); 
-            }
-            
-            let nuevoDisco = new Discos(banda, disco, codigo, canciones, portada);
-            this.discos.push(nuevoDisco);
-            return nuevoDisco;
-        } catch (error) {
-            console.warn(error.message);
-            return null;
-        }
-    }
-
-    /**
-     * crea los discos de un Json
-     * @param {json} discosArray 
-     */
-
-    static crearDeJson(discosArray){
-        try {
-            discosArray.forEach(discoData => {
-                const { nombre: disco, artista: banda, id: codigo, portada, pistas } = discoData;
-                let canciones = pistas.map(pista => new Cancion(pista.nombre, pista.duracion));
-                let nuevoDisco = new Discos(banda, disco, codigo, canciones, portada);
-                this.discos.push(nuevoDisco);
-            });
-        } catch (error) {
-            console.warn("Error al crear discos desde JSON:", error);
-        }
+    toHtml(){
+        let canciones = '';
+        this.canciones.forEach(cancion => {
+            canciones += cancion.toHtml();
+        });
+        return `
+            <section class="disco" id="${this.codigo}">
+                <h3>${this.disco} - ${this.banda}</h3>
+                <div class="disco-container">
+                    <div class="portada-disco">
+                        <img 
+                            src="${this.portada}" 
+                            onerror="this.src='https://png.pngtree.com/png-vector/20190917/ourmid/pngtree-not-found-circle-icon-vectors-png-image_1737851.jpg'" alt="portada de ${this.disco}"
+                        >
+                        ${this.mostrarInfoBanda()}
+                    </div>
+                    <ol class="lista-canciones">
+                        ${canciones}
+                    </ol>
+                </div>
+            </section>
+        `;
     }
 }
