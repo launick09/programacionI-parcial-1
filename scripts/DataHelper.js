@@ -27,7 +27,7 @@ export class DataHelper {
      */
     static integer(mensaje = 'Ingrese un Numero', min = 1, max = 999){
         let value = null;
-        while (value === "" || isNaN(value) || value < 1 || value > 999) {
+        while (value === "" || isNaN(value) || value < min || value > max) {
             value = prompt(mensaje);
             if (value === null) {
                 throw new Error('Ingreso Cancelado');
@@ -35,7 +35,7 @@ export class DataHelper {
             value = parseInt(value, 10);
             if (isNaN(value)) {
                 alert('Debe ingresar un número válido.');
-            } else if (value <= min || value >= max) {
+            } else if (value < min || value > max) {
                 alert(`El número debe estar entre ${min} y ${max}.`);
             }
         }
@@ -69,9 +69,10 @@ export class DataHelper {
      */
     static segundosATiempo(duracion, largo = true){
         const horas = Math.floor(duracion / 3600).toString();
-        const minutos = Math.floor((duracion % 3600) / 60).toString();
         const segundos = Math.ceil(duracion % 60).toString();
+        let minutos = Math.floor(duracion / 60).toString();
         if (largo && horas > 0) {
+            minutos = Math.floor((duracion % 3600) / 60).toString();
             return `${horas}:${minutos.padStart(2, '0')}:${segundos.padStart(2, '0')}`;
         }
         return `${minutos.padStart(2, '0')}:${segundos.padStart(2, '0')}`;

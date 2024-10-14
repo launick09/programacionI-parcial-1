@@ -37,6 +37,18 @@ export class Discografia {
         });
     }
 
+    mostrarInfo() {
+        let DiscoMasLargo = this.obtenerDiscoMasLargo();
+        let CantidadCanciones = this.discos.length;
+        return `
+            <ul>
+                <li class="item-cancion">Discos Cargados: ${CantidadCanciones}</li>
+                <li class="item-cancion">Disco Más Largo: ${DiscoMasLargo ? DiscoMasLargo.disco : 'N/A'}</li>
+                <li class="item-cancion">Duracion del Disco Más Largo: ${DiscoMasLargo ? DiscoMasLargo.getDuracionTotal() : 'N/A'}</li>
+            </ul>
+        `;
+    }
+
     /**
      * Busca discos por el codigo
      * @param {integer} codigo - El nombre de la banda a buscar

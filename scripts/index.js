@@ -7,6 +7,7 @@ import { Discografia } from './Discografia.js';
 
 const buscador = document.getElementById('codigo_buscar');
 let contenedor = document.getElementById('discos');
+let datos = document.getElementById('datos');
 let discografia = new Discografia;
 
 /**
@@ -15,6 +16,7 @@ let discografia = new Discografia;
 
 function cargar() {
     discografia.cargarDisco();
+    mostrarDatos();
 }   
 
 /**
@@ -24,6 +26,10 @@ function mostrar() {
     let html = discografia.toHtml();
     contenedor.innerHTML = html;
 };
+
+function mostrarDatos() {
+    datos.innerHTML = discografia.mostrarInfo();
+}
 
 /**
  * Busca un codigo en la lista de discos y lo muestra
@@ -62,6 +68,9 @@ function cargarJson() {
 window.addEventListener('load', cargarJson);
 
 //event listeners
+window.addEventListener('load', mostrarDatos);
+setInterval(mostrarDatos, 30000, []);
+
 document.getElementById("buscador").addEventListener("submit", buscar);
 document.getElementById("btn_cargar").addEventListener("click", cargar);
 document.getElementById("btn_mostrar").addEventListener("click", mostrar);
