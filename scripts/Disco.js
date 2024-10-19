@@ -31,10 +31,10 @@ export class Disco {
     mostrarInfoBanda() {
         return `
             <ul>
-                <li class="item-cancion">Cantidad de pistas: ${this.getCantidadPistas()}</li>
-                <li class="item-cancion">Pista más Larga: ${this.getPistaMasLarga().nombre}</li>
-                <li class="item-cancion">Duración Promedio: ${this.getDuracionPromedio()}</li>
-                <li class="item-cancion">Duración del Disco: ${this.getDuracionTotal()}</li>
+                <li class="item-info">Cantidad de pistas: <span class="duracion-larga">${this.getCantidadPistas()}</span></li>
+                <li class="item-info">Pista más Larga: <span class="duracion-larga">${this.getPistaMasLarga().nombre}</span></li>
+                <li class="item-info">Duración Promedio: <span class="duracion-larga">${this.getDuracionPromedio()}</span></li>
+                <li class="item-info">Duración del Disco: <span class="duracion-larga">${this.getDuracionTotal()}</span></li>
             </ul>
         `;
     }

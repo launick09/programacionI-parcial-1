@@ -2,17 +2,18 @@
  * Versión 1.0.0
  */
 @charset "utf-8";
-
-:root{
-    --color-background: #648fdf;
-    --color-text-white: #fafafa;
-    --color-text: #314770;
-}
-
 /**
  * Fonts
  */
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+
+:root{
+    --color-background: #121927;
+    --color-text-white: #fafafa;
+    --color-primary: #ffe600;
+    --color-text: #314770;
+}
 
 /**
  * Mobile
@@ -37,239 +38,173 @@ html {
     font-weight: 400;
 }
 
+a{
+    text-decoration: none;
+    color: var(--color-text-white);
+    font-family: 600;
+}
+
 .contenedor{
-    width: 90%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
 /** Body */
 body {
+    font-size: 16px;
     background-color:var(--color-background);
     color: var(--color-text-white);
-}
-
-/** Header */
-header {
-    padding: 0.5em 0;
-}
-
-/** Encabezados */
-h1,
-h2 {
-    font-family: "Hind Siliguri", sans-serif;
-    font-size: 1.5em;
-    line-height: 1.5;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 1.4em;
-    color: var(--color-text);
-}
-
-/** Main */
-main {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1em 0;
-    background-color: var(--color-text-white);
-    color: var(--color-background);
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
-main p,
-main span,
-main label,
-main legend,
-main b,
-main strong
- {
-    font-size: 1em;
-    line-height: 1.5;
-    text-align: left;
-    color: var(--color-background);
-}
-
-main p strong, 
-main p em {
-    font-size: 1em;
-}
-
-main p strong {
-    font-weight: 700;
-}
-
-main p em {
-    font-style: italic;
-}
-
-.administracion .informacion,
-section.disco{
-    border: 1px solid var(--color-text);
-    border-radius: 0.5em;
-    padding: 1em;
-    margin-bottom: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-}
-
-.administracion .informacion{
-    width: 100%;
-}
-
-section.disco h3{
-    font-size: 1.25em;
-    margin-bottom: 1em;
+header{
+    padding: 1rem 0;
     text-align: center;
 }
 
-section.disco .disco-container{
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 3em;
+h1{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+h2{
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+}
+
+main{
+    flex-grow:1;
 }
 
 .administracion{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-input{
-    padding: .25em .5em;
-    border-radius: .5rem 0 0 .5rem;
-    line-height: 1.5;
-    font-size: 1em;
-    outline: none;
-    border: 1px solid #CECECE;
-    margin: .5em 0;
+button{
+    padding: 0.2rem 0.4rem;
+    font-size: 1rem;
+    background-color: var(--color-text);
+    color: var(--color-text-white);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: color .3s ease, background .3s ease;
+}
+
+button:hover,button:focus{
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--color-text-white);
+    color: var(--color-text);
 }
 
 .busqueda{
     display: flex;
+    flex-wrap: nowrap;
+}
+
+.busqueda input{
+    font-size: 0.9rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid transparent;
+    transition: color .3s ease, background .3s ease;
 }
 
 .busqueda button{
-    border-radius: 0 .5rem .5rem 0;
+    border-radius:  0 5px 5px 0;
 }
 
-.block{
-    display: block;
+.informacion{
+    padding: 1rem 0;
 }
 
-.disco-container .portada-disco img{
-    /* no quiero lidear con esto */
-    width: 300px; 
-    height: auto;
-}
-
-ul.lista-canciones{
-    margin-right: auto;
-    width: max-content;
+.disco-container{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-ul.lista-canciones li.item-cancion {
-    margin-left: 1em;
-    font-size: 1em;
-    line-height: 1.5;
-    text-align: left;
-    color: var(--color-text);
-}
-
-main ul li strong,
-main ul li em {
-    font-size: 1em;
+.item-info{
+    list-style: none;
+    font-size: 0.9rem !important;
+    padding: 0.25rem 0;
 }
 
 .duracion-larga{
-    color: #bb1b1b;
+    color: var(--color-primary);
 }
 
-main button {
-    margin: .5em 0;
-    border: none;
-    border-radius: .5em;
-    padding: .25em .5em;
-    background: var(--color-background);
-    cursor: pointer;
-    font-size: 1em;
-    line-height: 1.5;
+.disco h3{
+    font-size: 1.3rem;
     text-align: center;
-    color: var(--color-text-white);
+    padding: 1rem 0;
 }
 
-/** Footer */
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 1em 0;
+.disco img{
+    border-radius: 0.5rem;
+    width: 300px;
+    height: 300px;
 }
 
-footer ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.lista-canciones{
     width: 100%;
+}
+
+.item-cancion{
+    list-style: none;
+    padding: 1rem 0;
+    border-top: 1px solid #fafafa90;
+}
+
+footer{
+    justify-items:end;
+}
+
+footer ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+footer ul li{
     list-style: none;
 }
 
-footer ul li {
-    font-family: "Hind Siliguri", sans-serif;
-    font-size: 0.75em;
-    line-height: 1.5;
-    text-align: center;
+footer .contenedor{
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-text-white);
 }
 
-footer ul li a {
-    font-family: "Hind Siliguri", sans-serif;
-    font-size: 1em;
-    text-decoration: none;
-    color: #D0E0E3;
-}
-
-footer ul li a:hover {
-    color: #a2c4c9;
-}
-
-/** Overs */
-main button:hover {
-    opacity: .8;
-}
-
-/**
- * Web
- */
-@media screen and (min-width: 960px) {
-
-    /** Main */
-    main div.galeria {
-        flex-direction: row;
+/* ----- ----- Mobile ----- ----- */
+@media (max-width: 600px) {
+    .contenedor{
+        max-width: 400px;
     }
-
-    main div.galeria > img {
-        max-width: 24%;
-        margin: 1em .5%;
+    h2{
+        text-align: center;
     }
-
-    main div.galeria div {
-        align-self: flex-start;
-        width: 30%;
+    .carga{
+        margin: auto;
     }
-
-    /** Footer */
-    footer ul {
-        flex-direction: row;
+    .busqueda, .busqueda input{
+        width: 100%;
+    }    
+    .disco-container{
+        flex-direction: column;
     }
-
+    .disco-container img{
+        width: 100%;
+        height: auto;
+    }
+    footer ul{
+        padding-top: 1rem;
+        flex-direction: column;
+    }
 }

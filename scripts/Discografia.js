@@ -38,17 +38,17 @@ export class Discografia {
     }
 
     mostrarInfo() {
-        let DiscoMasLargo = this.obtenerDiscoMasLargo();
-        let CantidadCanciones = this.discos.length;
         if( !this.discos.length ){
             return '<p>No hay discos!</p>'
         }
+        let DiscoMasLargo = this.obtenerDiscoMasLargo();
+        let CantidadCanciones = this.discos.length;
 
         return `
             <ul>
-                <li class="item-cancion">Discos Cargados: ${CantidadCanciones}</li>
-                <li class="item-cancion">Disco Más Largo: ${DiscoMasLargo ? DiscoMasLargo.disco : 'N/A'}</li>
-                <li class="item-cancion">Duracion del Disco Más Largo: ${DiscoMasLargo ? DiscoMasLargo.getDuracionTotal() : 'N/A'}</li>
+                <li class="item-info">Discos Cargados: <span class="duracion-larga">${CantidadCanciones}</span></li>
+                <li class="item-info">Disco Más Largo: <span class="duracion-larga">${DiscoMasLargo.disco} - ${DiscoMasLargo.banda}</span></li>
+                <li class="item-info">Duracion del Disco Más Largo: <span class="duracion-larga">${DiscoMasLargo.getDuracionTotal()}</span></li>
             </ul>
         `;
     }
