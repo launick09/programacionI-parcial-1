@@ -53,7 +53,7 @@ export class Disco {
      */
     getDuracionTotal() {
         const duracion = this.canciones.reduce((total, cancion) => total + cancion.duracion, 0);
-        return DataHelper.segundosATiempo(duracion, false);
+        return DataHelper.segundosATiempo(duracion, true);
     }
 
     /**

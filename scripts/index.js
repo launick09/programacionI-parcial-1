@@ -23,8 +23,7 @@ function cargar() {
  * Llamada desde un boton. Muestra todos los discos disponibles.
  */
 function mostrar() {
-    let html = discografia.toHtml();
-    contenedor.innerHTML = html;
+    contenedor.innerHTML = discografia.toHtml();
 };
 
 function mostrarDatos() {
@@ -58,19 +57,14 @@ function cargarJson() {
         discografia.crearDeJson(respuesta);
         console.log('carga finalizada.')
     })
+    .then( mostrarDatos )
     .catch( error => {
         console.error('Error al cargar Predeterminadas');
         console.error(error);
     });
 }
 
-//agrega los discos predeterminados
-window.addEventListener('load', cargarJson);
-
-//event listeners
-window.addEventListener('load', mostrarDatos);
-setInterval(mostrarDatos, 30000, []);
-
 document.getElementById("buscador").addEventListener("submit", buscar);
+document.getElementById("btn_json").addEventListener("click", cargarJson);
 document.getElementById("btn_cargar").addEventListener("click", cargar);
 document.getElementById("btn_mostrar").addEventListener("click", mostrar);

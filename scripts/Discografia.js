@@ -40,6 +40,10 @@ export class Discografia {
     mostrarInfo() {
         let DiscoMasLargo = this.obtenerDiscoMasLargo();
         let CantidadCanciones = this.discos.length;
+        if( !this.discos.length ){
+            return '<p>No hay discos!</p>'
+        }
+
         return `
             <ul>
                 <li class="item-cancion">Discos Cargados: ${CantidadCanciones}</li>
@@ -74,16 +78,16 @@ export class Discografia {
     cargarDisco() {
         try {     
             let codigo = null;
-            let codigoRepetido = false;
+            let codigoRepetido = null;
 
             let banda = DataHelper.string('Ingrese el Nombre de la Banda/Grupo:');
             let disco = DataHelper.string('Ingrese el Nombre del Disco:');
             let portada = DataHelper.string('URL de la imagen de la portada:');
             do{
                 codigo = DataHelper.integer('código numérico único:', 1, 999);
-                codigoRepetido = this.discos.some(disco => disco.codigo === codigo);
+                codigoRepetido = this.buscarDiscosPorCodigo(codigo);
                 if( codigoRepetido ){
-                    alert(`El codigo numérico ${codigo} ya existe, ingrese otro.`);
+                    alert(`El codigo numérico ${codigo} ya esta asignado a: (${codigoRepetido.disco}), por favor ingrese otro.`);
                 }
             }while( codigoRepetido );
             
@@ -122,6 +126,9 @@ export class Discografia {
             discosArray.forEach(discoData => {
                 const { nombre: disco, artista: banda, id: codigo, portada, pistas } = discoData;
                 let canciones = pistas.map(pista => new Cancion(pista.nombre, pista.duracion));
+                if(this.buscarDiscosPorCodigo(codigo)){
+                    console.warn(`La discografía ya contiene un album con código: ${codigo}.`); 
+                }
                 let nuevoDisco = new Disco(banda, disco, codigo, canciones, portada);
                 this.agregarDisco(nuevoDisco);
             });
