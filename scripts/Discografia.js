@@ -128,6 +128,7 @@ export class Discografia {
                 let canciones = pistas.map(pista => new Cancion(pista.nombre, pista.duracion));
                 if(this.buscarDiscosPorCodigo(codigo)){
                     console.warn(`La discografía ya contiene un album con código: ${codigo}.`); 
+                    return;
                 }
                 let nuevoDisco = new Disco(banda, disco, codigo, canciones, portada);
                 this.agregarDisco(nuevoDisco);

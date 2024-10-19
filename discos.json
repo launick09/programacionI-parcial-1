@@ -142,5 +142,257 @@
                 "duracion": 211
             }
         ]
+    },
+    {
+        "nombre": "London Calling",
+        "artista": "The Clash",
+        "id": 201,
+        "portada": "https://upload.wikimedia.org/wikipedia/en/0/00/TheClashLondonCallingalbumcover.jpg",
+        "pistas": [
+            {
+                "nombre": "London Calling",
+                "duracion": 197
+            },
+            {
+                "nombre": "Brand New Cadillac",
+                "duracion": 145
+            },
+            {
+                "nombre": "Jimmy Jazz",
+                "duracion": 198
+            },
+            {
+                "nombre": "Hateful",
+                "duracion": 150
+            },
+            {
+                "nombre": "Rudie Can't Fail",
+                "duracion": 195
+            },
+            {
+                "nombre": "Spanish Bombs",
+                "duracion": 197
+            },
+            {
+                "nombre": "The Right Profile",
+                "duracion": 211
+            },
+            {
+                "nombre": "Lost in the Supermarket",
+                "duracion": 219
+            },
+            {
+                "nombre": "Clampdown",
+                "duracion": 201
+            },
+            {
+                "nombre": "The Guns of Brixton",
+                "duracion": 178
+            },
+            {
+                "nombre": "Wrong 'Em Boyo",
+                "duracion": 212
+            },
+            {
+                "nombre": "Death or Glory",
+                "duracion": 208
+            },
+            {
+                "nombre": "Koka Kola",
+                "duracion": 104
+            },
+            {
+                "nombre": "The Card Cheat",
+                "duracion": 226
+            },
+            {
+                "nombre": "Lover's Rock",
+                "duracion": 217
+            },
+            {
+                "nombre": "Four Horsemen",
+                "duracion": 209
+            },
+            {
+                "nombre": "I'm Not Down",
+                "duracion": 195
+            },
+            {
+                "nombre": "Revolution Rock",
+                "duracion": 320
+            },
+            {
+                "nombre": "Train in Vain",
+                "duracion": 188
+            }
+        ]
+    },
+    {
+        "nombre": "Oceanborn",
+        "artista": "Nightwish",
+        "id": 202,
+        "portada": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Nightwish_Oceanborn.jpg/220px-Nightwish_Oceanborn.jpg",
+        "pistas": [
+            {
+                "nombre": "Stargazers",
+                "duracion": 268
+            },
+            {
+                "nombre": "Gethsemane",
+                "duracion": 305
+            },
+            {
+                "nombre": "Devil & the Deep Dark Ocean",
+                "duracion": 276
+            },
+            {
+                "nombre": "Sacrament of Wilderness",
+                "duracion": 272
+            },
+            {
+                "nombre": "Passion and the Opera",
+                "duracion": 267
+            },
+            {
+                "nombre": "Swanheart",
+                "duracion": 243
+            },
+            {
+                "nombre": "Moondance",
+                "duracion": 234
+            },
+            {
+                "nombre": "The Riddler",
+                "duracion": 300
+            },
+            {
+                "nombre": "The Pharaoh Sails to Orion",
+                "duracion": 393
+            },
+            {
+                "nombre": "Walking in the Air",
+                "duracion": 341
+            },
+            {
+                "nombre": "Sleeping Sun",
+                "duracion": 272
+            }
+        ]
+    },
+    {
+        "nombre": "Against the Grain",
+        "artista": "Bad Religion",
+        "id": 203,
+        "portada": "https://i2.wp.com/www.scienceofnoise.net/wp-content/uploads/2020/11/f6b5350d424f30f84f3651be3d781d9c.1000x1000x1.jpg",
+        "pistas": [
+            {
+                "nombre": "Modern Man",
+                "duracion": 110
+            },
+            {
+                "nombre": "Turn on the Light",
+                "duracion": 122
+            },
+            {
+                "nombre": "Get Off",
+                "duracion": 111
+            },
+            {
+                "nombre": "Blenderhead",
+                "duracion": 151
+            },
+            {
+                "nombre": "The Positive Aspect of Negative Thinking",
+                "duracion": 55
+            },
+            {
+                "nombre": "Anxiety",
+                "duracion": 138
+            },
+            {
+                "nombre": "Flat Earth Society",
+                "duracion": 158
+            },
+            {
+                "nombre": "Faith Alone",
+                "duracion": 144
+            },
+            {
+                "nombre": "Entropy",
+                "duracion": 164
+            },
+            {
+                "nombre": "Against the Grain",
+                "duracion": 121
+            },
+            {
+                "nombre": "Operation Rescue",
+                "duracion": 125
+            },
+            {
+                "nombre": "God Song",
+                "duracion": 116
+            },
+            {
+                "nombre": "21st Century (Digital Boy)",
+                "duracion": 163
+            },
+            {
+                "nombre": "Misery and Famine",
+                "duracion": 121
+            },
+            {
+                "nombre": "Unacceptable",
+                "duracion": 148
+            },
+            {
+                "nombre": "Quality or Quantity",
+                "duracion": 97
+            },
+            {
+                "nombre": "Walk Away",
+                "duracion": 116
+            }
+        ]
+    },
+    {
+        "nombre": "Powerslave",
+        "artista": "Iron Maiden",
+        "id": 204,
+        "portada": "https://i1.wp.com/www.scienceofnoise.net/wp-content/uploads/2020/04/48aa1f3d82cc342b050569f5f49c12f9.jpg",
+        "pistas": [
+            {
+                "nombre": "Aces High",
+                "duracion": 278
+            },
+            {
+                "nombre": "2 Minutes to Midnight",
+                "duracion": 362
+            },
+            {
+                "nombre": "Losfer Words (Big 'Orra)",
+                "duracion": 245
+            },
+            {
+                "nombre": "Flash of the Blade",
+                "duracion": 272
+            },
+            {
+                "nombre": "The Duellists",
+                "duracion": 366
+            },
+            {
+                "nombre": "Back in the Village",
+                "duracion": 321
+            },
+            {
+                "nombre": "Powerslave",
+                "duracion": 410
+            },
+            {
+                "nombre": "Rime of the Ancient Mariner",
+                "duracion": 823
+            }
+        ]
     }
 ]
