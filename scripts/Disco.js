@@ -31,6 +31,7 @@ export class Disco {
     mostrarInfoBanda() {
         return `
             <ul>
+                <li class="item-info">Código Unico: <span class="duracion-larga">${this.codigo}</span></li>
                 <li class="item-info">Cantidad de pistas: <span class="duracion-larga">${this.getCantidadPistas()}</span></li>
                 <li class="item-info">Pista más Larga: <span class="duracion-larga">${this.getPistaMasLarga().nombre}</span></li>
                 <li class="item-info">Duración Promedio: <span class="duracion-larga">${this.getDuracionPromedio()}</span></li>
